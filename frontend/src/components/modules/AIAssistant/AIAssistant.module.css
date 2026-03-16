@@ -1,0 +1,162 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 0.75rem;
+}
+
+.privacyNotice {
+  background: #e8f0fe;
+  border: 1px solid #c5d5f7;
+  border-radius: 6px;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.8rem;
+  color: #1a73e8;
+  flex-shrink: 0;
+}
+
+.messages {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  min-height: 200px;
+}
+
+.emptyState {
+  text-align: center;
+  color: #888;
+  margin-top: 3rem;
+}
+
+.emptyState p {
+  margin: 0.4rem 0;
+}
+
+.hint {
+  font-size: 0.875rem;
+  color: #aaa;
+}
+
+.message {
+  display: flex;
+}
+
+.userMessage {
+  justify-content: flex-end;
+}
+
+.assistantMessage {
+  justify-content: flex-start;
+}
+
+.messageBubble {
+  max-width: 80%;
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.userMessage .messageBubble {
+  background: #1a73e8;
+  color: #fff;
+  border-bottom-right-radius: 4px;
+}
+
+.assistantMessage .messageBubble {
+  background: #f1f3f4;
+  color: #202124;
+  border-bottom-left-radius: 4px;
+}
+
+.messageContent {
+  margin: 0;
+  font-family: inherit;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.typing {
+  letter-spacing: 2px;
+  color: #888;
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+.error {
+  background: #fce8e6;
+  border: 1px solid #f5c6c2;
+  border-radius: 6px;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  color: #c5221f;
+}
+
+.inputArea {
+  display: flex;
+  gap: 0.5rem;
+  flex-shrink: 0;
+  border-top: 1px solid #e8eaed;
+  padding-top: 0.75rem;
+}
+
+.input {
+  flex: 1;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid #dadce0;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-family: inherit;
+  resize: none;
+  outline: none;
+}
+
+.input:focus {
+  border-color: #1a73e8;
+  box-shadow: 0 0 0 2px rgba(26,115,232,0.2);
+}
+
+.sendBtn {
+  align-self: flex-end;
+  padding: 0.6rem 1.25rem;
+  background: #1a73e8;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.15s;
+}
+
+.sendBtn:hover:not(:disabled) {
+  background: #1557b0;
+}
+
+.sendBtn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.clearBtn {
+  padding: 0.4rem 0.75rem;
+  background: #fff;
+  border: 1px solid #dadce0;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  color: #5f6368;
+  transition: background 0.15s;
+}
+
+.clearBtn:hover {
+  background: #f8d7da;
+  border-color: #f5c6c2;
+  color: #c5221f;
+}

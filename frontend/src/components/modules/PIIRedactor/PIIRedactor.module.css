@@ -1,0 +1,187 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  height: 100%;
+}
+
+.privacyBanner {
+  background: #e6f4ea;
+  border: 1px solid #b7dfc0;
+  border-radius: 8px;
+  padding: 0.6rem 0.9rem;
+  font-size: 0.82rem;
+  color: #137333;
+  flex-shrink: 0;
+}
+
+.modeRow,
+.patternRow {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.modeLabel {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #5f6368;
+  text-transform: uppercase;
+  margin-right: 0.2rem;
+  white-space: nowrap;
+}
+
+.modeBtn {
+  padding: 0.35rem 0.85rem;
+  border: 1px solid #dadce0;
+  border-radius: 20px;
+  background: #fff;
+  font-size: 0.85rem;
+  cursor: pointer;
+  color: #3c4043;
+  transition: all 0.15s;
+}
+
+.modeBtn:hover { background: #f1f3f4; }
+
+.activeModeBtn {
+  background: #1a73e8 !important;
+  color: #fff !important;
+  border-color: #1a73e8 !important;
+  font-weight: 600;
+}
+
+.modeHelp {
+  font-size: 0.8rem;
+  color: #80868b;
+  font-style: italic;
+  margin-left: 0.25rem;
+}
+
+.patternChip {
+  padding: 0.25rem 0.65rem;
+  border: 1px solid #dadce0;
+  border-radius: 12px;
+  background: #fff;
+  font-size: 0.8rem;
+  cursor: pointer;
+  color: #5f6368;
+  transition: all 0.15s;
+}
+
+.patternChip:hover { background: #f1f3f4; }
+
+.activeChip {
+  background: #e8f0fe !important;
+  border-color: #1a73e8 !important;
+  color: #1a73e8 !important;
+  font-weight: 600;
+}
+
+.textAreas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  flex: 1;
+  min-height: 0;
+}
+
+@media (max-width: 768px) {
+  .textAreas { grid-template-columns: 1fr; }
+}
+
+.textSection {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.textLabel {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #5f6368;
+}
+
+.outputLabelRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.textArea {
+  flex: 1;
+  min-height: 300px;
+  padding: 0.75rem;
+  border: 1px solid #dadce0;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-family: "Roboto Mono", monospace;
+  resize: vertical;
+  outline: none;
+  line-height: 1.6;
+}
+
+.textArea:focus { border-color: #1a73e8; }
+
+.outputArea {
+  background: #f8fffe;
+  border-color: #b7dfc0;
+  color: #137333;
+}
+
+.copyOutputBtn {
+  padding: 0.3rem 0.65rem;
+  background: #fff;
+  border: 1px solid #dadce0;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  color: #1a73e8;
+  transition: all 0.15s;
+}
+
+.copyOutputBtn:hover { background: #e8f0fe; }
+
+.copied {
+  background: #e6f4ea !important;
+  border-color: #34a853 !important;
+  color: #137333 !important;
+}
+
+.processBtn {
+  padding: 0.4rem 1rem;
+  background: #1a73e8;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.processBtn:hover:not(:disabled) { background: #1557b0; }
+.processBtn:disabled { background: #ccc; cursor: not-allowed; }
+
+.statsBar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 0.75rem;
+  background: #f8f9fa;
+  border: 1px solid #e8eaed;
+  border-radius: 6px;
+  font-size: 0.82rem;
+}
+
+.statsTotal { font-weight: 600; color: #202124; }
+
+.statChip {
+  padding: 0.15rem 0.5rem;
+  background: #e8f0fe;
+  border-radius: 12px;
+  color: #1a73e8;
+  font-weight: 600;
+  font-size: 0.78rem;
+}

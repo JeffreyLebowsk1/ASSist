@@ -1,0 +1,92 @@
+.layout {
+  display: flex;
+  gap: 1rem;
+  height: 100%;
+}
+
+.messageList {
+  width: 40%;
+  border-right: 1px solid #e8eaed;
+  padding-right: 0.75rem;
+  overflow-y: auto;
+}
+
+.messageRow {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 0.6rem 0.5rem;
+  border: none;
+  background: none;
+  cursor: pointer;
+  text-align: left;
+  border-bottom: 1px solid #f1f3f4;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  color: #202124;
+}
+
+.messageRow:hover { background: #f1f3f4; }
+.selectedRow { background: #e8f0fe !important; font-weight: 600; }
+
+.msgId { color: #5f6368; font-family: monospace; }
+
+.messageDetail {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.detailHeaders {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  background: #f8f9fa;
+  padding: 0.75rem;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  margin-bottom: 0.75rem;
+}
+
+.snippet {
+  font-size: 0.9rem;
+  color: #444;
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+
+.searchBar {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.searchInput {
+  padding: 0.35rem 0.6rem;
+  border: 1px solid #dadce0;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  outline: none;
+}
+
+.searchInput:focus { border-color: #1a73e8; }
+
+.searchBtn {
+  padding: 0.35rem 0.6rem;
+  background: #1a73e8;
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.error {
+  background: #fce8e6;
+  color: #c5221f;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  margin-bottom: 0.75rem;
+  font-size: 0.875rem;
+}
+
+.loading { color: #888; font-size: 0.875rem; margin-bottom: 0.5rem; }
+.empty { color: #888; text-align: center; margin-top: 2rem; font-size: 0.9rem; }
