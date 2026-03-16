@@ -11,6 +11,7 @@ from ..services.session_manager import get_session_manager
 router = APIRouter(prefix="/ai", tags=["ai-assistant"])
 
 MAX_MESSAGE_LENGTH = 8000  # Characters
+MAX_HISTORY_LENGTH = 40    # Total messages retained in session history
 
 
 class ChatRequest(BaseModel):
@@ -61,9 +62,9 @@ async def chat(body: ChatRequest, request: Request):
     history = list(history)
     history.append({"role": "user", "content": body.message})
     history.append({"role": "assistant", "content": reply})
-    # Keep last 40 messages to avoid unbounded growth
-    if len(history) > 40:
-        history = history[-40:]
+    # Keep last MAX_HISTORY_LENGTH messages to avoid unbounded growth
+    if len(history) > MAX_HISTORY_LENGTH:
+        history = history[-MAX_HISTORY_LENGTH:]
     session_manager.set(session_token, "ai_history", history)
 
     return JSONResponse(content={"reply": reply, "history_length": len(history)})

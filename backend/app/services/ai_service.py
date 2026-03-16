@@ -8,6 +8,8 @@ from typing import AsyncGenerator, Optional
 from ..config import get_settings
 
 
+MAX_CONTEXT_MESSAGES = 20  # Messages fed to the AI per request (from session history)
+
 class Message:
     def __init__(self, role: str, content: str):
         self.role = role
@@ -53,7 +55,7 @@ class AIService:
             stream: Whether to stream the response
         """
         messages = [{"role": "system", "content": SYSTEM_PROMPT}]
-        messages.extend(history[-20:])  # Keep last 20 messages only
+        messages.extend(history[-MAX_CONTEXT_MESSAGES:])
         messages.append({"role": "user", "content": message})
 
         backend = self.settings.ai_backend

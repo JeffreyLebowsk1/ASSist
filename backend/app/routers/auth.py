@@ -7,6 +7,7 @@ from typing import Optional
 
 from ..services.google_auth import get_google_auth_service
 from ..services.session_manager import get_session_manager
+from ..config import get_settings
 
 router = APIRouter(prefix="/auth", tags=["auth"])
 
@@ -20,6 +21,7 @@ async def login(response: Response):
     """Initiate Google OAuth2 flow."""
     session_manager = get_session_manager()
     auth_service = get_google_auth_service()
+    settings = get_settings()
 
     session_token = session_manager.create_session()
     state = secrets.token_urlsafe(16)
@@ -33,7 +35,7 @@ async def login(response: Response):
         value=session_token,
         httponly=True,
         samesite="lax",
-        secure=False,  # Set to True in production with HTTPS
+        secure=not settings.debug,
         max_age=3600,
     )
     return resp
@@ -70,7 +72,7 @@ async def callback(code: str, state: str, request: Request):
     session_manager.set(session_token, "authenticated", True)
     session_manager.set(session_token, "oauth_state", None)  # Clear state
 
-    return RedirectResponse(url="http://localhost:5173/")
+    return RedirectResponse(url=get_settings().frontend_url)
 
 
 @router.get("/me")

@@ -36,7 +36,9 @@ async def list_files(
 
     q_parts = []
     if query:
-        q_parts.append(f"name contains '{query}'")
+        # Escape single quotes to prevent Drive query syntax injection
+        safe_query = query.replace("\\", "\\\\").replace("'", "\\'")
+        q_parts.append(f"name contains '{safe_query}'")
     if mime_type:
         q_parts.append(f"mimeType='{mime_type}'")
     q_parts.append("trashed=false")

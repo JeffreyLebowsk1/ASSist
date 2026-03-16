@@ -50,7 +50,7 @@ app.add_middleware(
 if not settings.debug:
     app.add_middleware(
         TrustedHostMiddleware,
-        allowed_hosts=["localhost", "127.0.0.1", "*.local"],
+        allowed_hosts=settings.trusted_hosts,
     )
 
 # --- Routers ---

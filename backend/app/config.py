@@ -13,9 +13,13 @@ class Settings(BaseSettings):
     port: int = 8000
 
     # Security
+    # Must be set explicitly in production via SECRET_KEY env var.
+    # Falls back to a per-process random value in development (invalidates sessions on restart).
     secret_key: str = secrets.token_urlsafe(32)
     session_max_age: int = 3600  # 1 hour
     allowed_origins: list[str] = ["http://localhost:5173", "http://localhost:3000"]
+    frontend_url: str = "http://localhost:5173"
+    trusted_hosts: list[str] = ["localhost", "127.0.0.1", "*.local"]
 
     # Google OAuth2
     google_client_id: str = ""
