@@ -1,0 +1,87 @@
+.page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 2.5rem 2rem;
+  max-width: 400px;
+  width: 100%;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.3);
+  text-align: center;
+}
+
+.logo {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #202124;
+  margin: 0 0 0.4rem;
+}
+
+.subtitle {
+  color: #5f6368;
+  margin: 0 0 1.5rem;
+  font-size: 0.95rem;
+}
+
+.features {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+.feature {
+  font-size: 0.9rem;
+  color: #3c4043;
+  padding: 0.35rem 0;
+  border-bottom: 1px solid #f1f3f4;
+}
+
+.loginBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 0.85rem 1.5rem;
+  background: #1a73e8;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+  margin-bottom: 1rem;
+}
+
+.loginBtn:hover {
+  background: #1557b0;
+}
+
+.googleIcon {
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  border-radius: 2px;
+  padding: 2px;
+}
+
+.privacy {
+  font-size: 0.78rem;
+  color: #80868b;
+  line-height: 1.5;
+  margin: 0;
+}

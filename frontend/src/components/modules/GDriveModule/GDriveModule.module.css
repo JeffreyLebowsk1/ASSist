@@ -1,0 +1,85 @@
+.fileGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.fileCard {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.65rem 0.75rem;
+  border: 1px solid #e8eaed;
+  border-radius: 8px;
+  text-decoration: none;
+  color: inherit;
+  transition: background 0.15s;
+  background: #fff;
+}
+
+.fileCard:hover {
+  background: #f1f3f4;
+  border-color: #1a73e8;
+}
+
+.fileIcon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.fileInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  overflow: hidden;
+}
+
+.fileName {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #202124;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.fileMeta {
+  font-size: 0.75rem;
+  color: #80868b;
+}
+
+.searchBar {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.searchInput {
+  padding: 0.35rem 0.6rem;
+  border: 1px solid #dadce0;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  outline: none;
+}
+
+.searchInput:focus { border-color: #1a73e8; }
+
+.searchBtn {
+  padding: 0.35rem 0.6rem;
+  background: #1a73e8;
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.error {
+  background: #fce8e6;
+  color: #c5221f;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  margin-bottom: 0.75rem;
+  font-size: 0.875rem;
+}
+
+.loading { color: #888; font-size: 0.875rem; margin-bottom: 0.5rem; }
+.empty { color: #888; text-align: center; margin-top: 2rem; font-size: 0.9rem; }
