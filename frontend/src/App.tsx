@@ -8,9 +8,16 @@ import GmailModule from "./components/modules/GmailModule";
 import GDriveModule from "./components/modules/GDriveModule";
 import Dashboard from "./components/modules/Dashboard";
 import styles from "./App.module.css";
-import type { ModuleId } from "./types";
+import type { ModuleId, User, ModuleConfig } from "./types";
 
-function ModuleView({ moduleId, ...props }: { moduleId: ModuleId; user: ReturnType<typeof useAuth>["user"]; modules: ReturnType<typeof useModule>["modules"]; onNavigate: (id: ModuleId) => void }) {
+interface ModuleViewProps {
+  moduleId: ModuleId;
+  user: User | null;
+  modules: ModuleConfig[];
+  onNavigate: (id: ModuleId) => void;
+}
+
+function ModuleView({ moduleId, ...props }: ModuleViewProps) {
   switch (moduleId) {
     case "ai-assistant":
       return <AIAssistant />;

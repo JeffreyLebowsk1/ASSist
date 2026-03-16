@@ -13,10 +13,10 @@ export default function LoginPage({ onLogin }: LoginPageProps) {
         <p className={styles.subtitle}>Your modular digital work assistant</p>
 
         <div className={styles.features}>
-          <div className={styles.feature}>✉️ Gmail integration</div>
-          <div className={styles.feature}>📁 Google Drive &amp; Docs</div>
-          <div className={styles.feature}>🤖 AI assistant</div>
-          <div className={styles.feature}>🔒 No persistent PII storage</div>
+          <div className={styles.feature}><span aria-hidden="true">✉️</span> Gmail integration</div>
+          <div className={styles.feature}><span aria-hidden="true">📁</span> Google Drive &amp; Docs</div>
+          <div className={styles.feature}><span aria-hidden="true">🤖</span> AI assistant</div>
+          <div className={styles.feature}><span aria-hidden="true">🔒</span> No persistent PII storage</div>
         </div>
 
         <button className={styles.loginBtn} onClick={onLogin}>
