@@ -7,17 +7,23 @@ import AIAssistant from "./components/modules/AIAssistant";
 import GmailModule from "./components/modules/GmailModule";
 import GDriveModule from "./components/modules/GDriveModule";
 import Dashboard from "./components/modules/Dashboard";
+import RegistrarDashboard from "./components/modules/RegistrarDashboard";
+import PIIClipboard from "./components/modules/PIIClipboard";
+import PIIRedactor from "./components/modules/PIIRedactor";
 import styles from "./App.module.css";
-import type { ModuleId, User, ModuleConfig } from "./types";
+import type { ModuleId } from "./types";
 
-interface ModuleViewProps {
+function ModuleView({
+  moduleId,
+  user,
+  modules,
+  onNavigate,
+}: {
   moduleId: ModuleId;
-  user: User | null;
-  modules: ModuleConfig[];
+  user: ReturnType<typeof useAuth>["user"];
+  modules: ReturnType<typeof useModule>["modules"];
   onNavigate: (id: ModuleId) => void;
-}
-
-function ModuleView({ moduleId, ...props }: ModuleViewProps) {
+}) {
   switch (moduleId) {
     case "ai-assistant":
       return <AIAssistant />;
@@ -25,9 +31,15 @@ function ModuleView({ moduleId, ...props }: ModuleViewProps) {
       return <GmailModule />;
     case "drive":
       return <GDriveModule />;
+    case "registrar":
+      return <RegistrarDashboard onNavigate={onNavigate} />;
+    case "pii-clipboard":
+      return <PIIClipboard />;
+    case "pii-redactor":
+      return <PIIRedactor />;
     case "dashboard":
     default:
-      return <Dashboard user={props.user} modules={props.modules} onNavigate={props.onNavigate} />;
+      return <Dashboard user={user} modules={modules} onNavigate={onNavigate} />;
   }
 }
 

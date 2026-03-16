@@ -36,7 +36,7 @@ export interface DriveFile {
   webViewLink?: string;
 }
 
-export type ModuleId = "ai-assistant" | "gmail" | "drive" | "dashboard";
+export type ModuleId = "ai-assistant" | "gmail" | "drive" | "dashboard" | "registrar" | "pii-clipboard" | "pii-redactor";
 
 export interface ModuleConfig {
   id: ModuleId;

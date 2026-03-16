@@ -23,15 +23,15 @@ export default function Dashboard({ user, modules, onNavigate }: DashboardProps)
 
         <div className={styles.privacyBanner}>
           🔒 <strong>Privacy:</strong> No conversation history or document content is stored
-          permanently. All session data is wiped on logout.
+          permanently. All session data is wiped on logout. PII tools operate client-side only.
         </div>
 
-        <h3 className={styles.sectionTitle}>Quick Access</h3>
+        <h3 className={styles.sectionTitle}>Work Modules</h3>
         <div className={styles.grid}>
           {workModules.map((mod) => (
             <button
               key={mod.id}
-              className={styles.moduleCard}
+              className={`${styles.moduleCard} ${["registrar","pii-clipboard","pii-redactor"].includes(mod.id) ? styles.featured : ""}`}
               onClick={() => onNavigate(mod.id)}
             >
               <span className={styles.cardIcon}>{mod.icon}</span>

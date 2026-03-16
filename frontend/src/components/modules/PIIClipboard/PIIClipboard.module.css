@@ -1,0 +1,279 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.privacyBanner {
+  background: #e6f4ea;
+  border: 1px solid #b7dfc0;
+  border-radius: 8px;
+  padding: 0.6rem 0.9rem;
+  font-size: 0.82rem;
+  color: #137333;
+  flex-shrink: 0;
+}
+
+/* Student tabs */
+.studentTabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.studentTab {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.75rem;
+  border: 1px solid #dadce0;
+  border-radius: 20px;
+  background: #fff;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.15s;
+  color: #3c4043;
+}
+
+.studentTab:hover { background: #f1f3f4; }
+
+.activeTab {
+  background: #1a73e8 !important;
+  color: #fff !important;
+  border-color: #1a73e8 !important;
+  font-weight: 600;
+}
+
+.removeTab {
+  font-size: 1rem;
+  line-height: 1;
+  opacity: 0.7;
+  cursor: pointer;
+  padding: 0 0.1rem;
+}
+
+.removeTab:hover { opacity: 1; }
+
+/* Edit form */
+.formCard {
+  background: #f8f9fa;
+  border: 1px solid #e8eaed;
+  border-radius: 10px;
+  padding: 1.25rem;
+}
+
+.formTitle {
+  margin: 0 0 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #202124;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 0.75rem;
+}
+
+.formField {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.fieldLabel {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #5f6368;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.fieldInput {
+  padding: 0.45rem 0.6rem;
+  border: 1px solid #dadce0;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  outline: none;
+  background: #fff;
+}
+
+.fieldInput:focus {
+  border-color: #1a73e8;
+  box-shadow: 0 0 0 2px rgba(26,115,232,0.15);
+}
+
+.formActions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.saveBtn {
+  padding: 0.5rem 1.25rem;
+  background: #1a73e8;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.saveBtn:hover { background: #1557b0; }
+
+.cancelBtn {
+  padding: 0.5rem 1rem;
+  background: #fff;
+  border: 1px solid #dadce0;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  color: #5f6368;
+}
+
+/* Copy panel */
+.copyPanel {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.copyPanelHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.copyPanelName {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #202124;
+}
+
+.editBtn {
+  padding: 0.35rem 0.75rem;
+  background: #fff;
+  border: 1px solid #dadce0;
+  border-radius: 6px;
+  font-size: 0.82rem;
+  cursor: pointer;
+  color: #5f6368;
+}
+
+.editBtn:hover { background: #f1f3f4; }
+
+.fieldSection { display: flex; flex-direction: column; gap: 0.5rem; }
+
+.sectionLabel {
+  margin: 0;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #80868b;
+}
+
+.fieldGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 0.4rem;
+}
+
+.copyBtn {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 0.75rem;
+  background: #fff;
+  border: 1px solid #e8eaed;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.15s;
+  min-width: 0;
+}
+
+.copyBtn:hover {
+  background: #e8f0fe;
+  border-color: #1a73e8;
+}
+
+.copied {
+  background: #e6f4ea !important;
+  border-color: #34a853 !important;
+}
+
+.copyBtnLabel {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #80868b;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+  min-width: 80px;
+}
+
+.copyBtnValue {
+  font-size: 0.88rem;
+  color: #202124;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.copyBtnIcon {
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+/* Buttons */
+.actionBtn {
+  padding: 0.4rem 0.85rem;
+  background: #1a73e8;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.actionBtn:hover { background: #1557b0; }
+
+.dangerBtn {
+  padding: 0.4rem 0.75rem;
+  background: #fff;
+  border: 1px solid #f5c6c2;
+  border-radius: 6px;
+  font-size: 0.82rem;
+  cursor: pointer;
+  color: #c5221f;
+}
+
+.dangerBtn:hover { background: #fce8e6; }
+
+.emptyState {
+  text-align: center;
+  color: #888;
+  padding: 2rem;
+}
+
+.emptyState p { margin: 0.4rem 0; }
+
+.hint { font-size: 0.875rem; color: #aaa; }
+
+.addBtn {
+  margin-top: 1rem;
+  padding: 0.6rem 1.5rem;
+  background: #1a73e8;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.addBtn:hover { background: #1557b0; }

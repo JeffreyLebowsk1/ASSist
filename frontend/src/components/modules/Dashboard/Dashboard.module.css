@@ -76,3 +76,8 @@
   font-size: 0.8rem;
   color: #5f6368;
 }
+
+.featured {
+  border-color: #1a73e8 !important;
+  background: linear-gradient(135deg, #e8f0fe, #fff) !important;
+}

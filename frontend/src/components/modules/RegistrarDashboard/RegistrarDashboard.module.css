@@ -1,0 +1,232 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* Quick action cards */
+.quickActions {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 0.75rem;
+}
+
+.quickCard {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.3rem;
+  padding: 1rem;
+  background: #fff;
+  border: 1px solid #e8eaed;
+  border-radius: 10px;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.15s;
+}
+
+.quickCard:hover {
+  border-color: #1a73e8;
+  box-shadow: 0 2px 8px rgba(26,115,232,0.15);
+}
+
+.quickIcon { font-size: 1.6rem; }
+.quickLabel { font-size: 0.9rem; font-weight: 700; color: #202124; }
+.quickDesc { font-size: 0.78rem; color: #80868b; }
+
+/* Two column layout */
+.twoCol {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .twoCol { grid-template-columns: 1fr; }
+}
+
+.card {
+  background: #fff;
+  border: 1px solid #e8eaed;
+  border-radius: 10px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.cardTitle {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #202124;
+}
+
+/* Category tabs */
+.categoryTabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.catTab {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.3rem 0.65rem;
+  border: 1px solid #dadce0;
+  border-radius: 16px;
+  background: #fff;
+  font-size: 0.8rem;
+  cursor: pointer;
+  color: #5f6368;
+  transition: all 0.15s;
+}
+
+.catTab:hover { background: #f1f3f4; }
+
+.activeCatTab {
+  background: #1a73e8 !important;
+  color: #fff !important;
+  border-color: #1a73e8 !important;
+  font-weight: 600;
+}
+
+.catBadge {
+  background: rgba(255,255,255,0.25);
+  border-radius: 10px;
+  padding: 0 0.4rem;
+  font-size: 0.72rem;
+}
+
+.activeCatTab .catBadge { background: rgba(255,255,255,0.3); }
+
+.checklistHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.35rem;
+}
+
+.checklistProgress {
+  font-size: 0.78rem;
+  color: #80868b;
+  font-weight: 600;
+}
+
+.resetBtn {
+  font-size: 0.75rem;
+  color: #1a73e8;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.resetBtn:hover { text-decoration: underline; }
+
+.checklistItems {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  max-height: 320px;
+  overflow-y: auto;
+}
+
+.checkItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  padding: 0.45rem 0.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  color: #202124;
+  transition: background 0.15s;
+  line-height: 1.4;
+}
+
+.checkItem:hover { background: #f8f9fa; }
+
+.doneItem {
+  color: #80868b;
+  text-decoration: line-through;
+}
+
+.checkbox {
+  margin-top: 1px;
+  accent-color: #1a73e8;
+  flex-shrink: 0;
+}
+
+/* Templates */
+.templateList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.templateBtn {
+  padding: 0.5rem 0.75rem;
+  background: #fff;
+  border: 1px solid #e8eaed;
+  border-radius: 6px;
+  text-align: left;
+  font-size: 0.875rem;
+  color: #3c4043;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.templateBtn:hover { background: #f1f3f4; border-color: #1a73e8; }
+
+.activeTemplate {
+  background: #e8f0fe !important;
+  border-color: #1a73e8 !important;
+  color: #1a73e8 !important;
+  font-weight: 600;
+}
+
+.templatePreview {
+  border: 1px solid #e8eaed;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-top: 0.25rem;
+}
+
+.templatePreviewHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 0.75rem;
+  background: #f8f9fa;
+  border-bottom: 1px solid #e8eaed;
+  font-size: 0.85rem;
+}
+
+.templateBody {
+  margin: 0;
+  padding: 0.75rem;
+  font-size: 0.8rem;
+  font-family: inherit;
+  white-space: pre-wrap;
+  max-height: 220px;
+  overflow-y: auto;
+  color: #3c4043;
+  line-height: 1.5;
+}
+
+.copyTmplBtn {
+  padding: 0.25rem 0.6rem;
+  background: #fff;
+  border: 1px solid #dadce0;
+  border-radius: 5px;
+  font-size: 0.78rem;
+  cursor: pointer;
+  color: #1a73e8;
+  transition: all 0.15s;
+}
+
+.copyTmplBtn:hover { background: #e8f0fe; }
+.copied { background: #e6f4ea !important; color: #137333 !important; border-color: #34a853 !important; }

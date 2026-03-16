@@ -9,6 +9,24 @@ export const MODULE_CONFIGS: ModuleConfig[] = [
     description: "Overview and quick actions",
   },
   {
+    id: "registrar",
+    title: "Registrar Toolkit",
+    icon: "🎓",
+    description: "Graduation, transcripts & admissions",
+  },
+  {
+    id: "pii-clipboard",
+    title: "PII Clipboard",
+    icon: "📋",
+    description: "Quick-copy student data to forms",
+  },
+  {
+    id: "pii-redactor",
+    title: "PII Redactor",
+    icon: "🛡️",
+    description: "Redact/scramble PII for safe samples",
+  },
+  {
     id: "ai-assistant",
     title: "AI Assistant",
     icon: "🤖",
