@@ -1,5 +1,6 @@
 """Google Drive / Docs integration router.
 File content is fetched live - no content is cached or stored on disk."""
+import re
 from fastapi import APIRouter, HTTPException, Query, Request
 from fastapi.responses import JSONResponse
 from typing import Optional
@@ -11,6 +12,18 @@ router = APIRouter(prefix="/drive", tags=["drive"])
 
 DRIVE_API = "https://www.googleapis.com/drive/v3"
 DOCS_EXPORT_URL = "https://docs.google.com/document/d/{id}/export"
+
+# Allowlist for mime_type parameter: only Google Workspace and common types
+_ALLOWED_MIME_RE = re.compile(
+    r"^(application/vnd\.google-apps\.[a-z]+|application/pdf|text/plain|image/[a-z]+)$"
+)
+
+
+def _sanitize_query(value: str) -> str:
+    """Escape Drive query string values to prevent syntax injection."""
+    # Strip any characters outside printable ASCII, then escape backslash and single quote
+    safe = re.sub(r"[^\x20-\x7E]", "", value)
+    return safe.replace("\\", "\\\\").replace("'", "\\'")
 
 
 def _require_auth(request: Request) -> tuple[str, str]:
@@ -27,7 +40,7 @@ def _require_auth(request: Request) -> tuple[str, str]:
 @router.get("/files")
 async def list_files(
     request: Request,
-    query: Optional[str] = Query(default=None),
+    query: Optional[str] = Query(default=None, max_length=200),
     page_size: int = Query(default=20, le=100),
     mime_type: Optional[str] = Query(default=None),
 ):
@@ -36,10 +49,10 @@ async def list_files(
 
     q_parts = []
     if query:
-        # Escape single quotes to prevent Drive query syntax injection
-        safe_query = query.replace("\\", "\\\\").replace("'", "\\'")
-        q_parts.append(f"name contains '{safe_query}'")
+        q_parts.append(f"name contains '{_sanitize_query(query)}'")
     if mime_type:
+        if not _ALLOWED_MIME_RE.match(mime_type):
+            raise HTTPException(status_code=400, detail="Invalid mime_type value")
         q_parts.append(f"mimeType='{mime_type}'")
     q_parts.append("trashed=false")
 

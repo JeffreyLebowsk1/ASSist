@@ -1,7 +1,13 @@
 """Application configuration via environment variables."""
+import logging
 import secrets
 from functools import lru_cache
 from pydantic_settings import BaseSettings
+
+logger = logging.getLogger(__name__)
+
+# Sentinel to detect whether SECRET_KEY was explicitly provided
+_GENERATED_KEY = secrets.token_urlsafe(32)
 
 
 class Settings(BaseSettings):
@@ -13,9 +19,9 @@ class Settings(BaseSettings):
     port: int = 8000
 
     # Security
-    # Must be set explicitly in production via SECRET_KEY env var.
-    # Falls back to a per-process random value in development (invalidates sessions on restart).
-    secret_key: str = secrets.token_urlsafe(32)
+    # IMPORTANT: Set SECRET_KEY explicitly in production via the environment variable.
+    # The default is a per-process random value (sessions invalidated on restart).
+    secret_key: str = _GENERATED_KEY
     session_max_age: int = 3600  # 1 hour
     allowed_origins: list[str] = ["http://localhost:5173", "http://localhost:3000"]
     frontend_url: str = "http://localhost:5173"
@@ -45,6 +51,15 @@ class Settings(BaseSettings):
 
     # Session store (in-memory only, no disk persistence)
     max_sessions: int = 50
+
+    def __init__(self, **data):
+        super().__init__(**data)
+        if not self.debug and self.secret_key == _GENERATED_KEY:
+            logger.warning(
+                "SECRET_KEY is not set — using a per-process random key. "
+                "Sessions will be invalidated on every restart. "
+                "Set SECRET_KEY in your .env file for production."
+            )
 
     class Config:
         env_file = ".env"

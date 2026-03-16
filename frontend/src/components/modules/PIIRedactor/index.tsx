@@ -111,7 +111,10 @@ const PATTERNS: PatternDef[] = [
 ];
 
 function applyRedaction(text: string, selectedPatterns: Set<string>, mode: RedactMode): string {
-  _seed = 1234567; // Reset seed for deterministic output
+  // Reset to a fixed seed so the same input always produces the same scrambled output.
+  // This is intentional: it lets you create consistent sample documents across multiple
+  // redaction runs (e.g., the same fake student name appears in all your training materials).
+  _seed = 1234567;
   let result = text;
   for (const p of PATTERNS) {
     if (!selectedPatterns.has(p.id)) continue;

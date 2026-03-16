@@ -3,21 +3,10 @@ Conversation history lives only in the server-side session for the duration
 of the user's session. No content is written to disk or external databases."""
 from __future__ import annotations
 
-from typing import AsyncGenerator, Optional
-
 from ..config import get_settings
 
 
 MAX_CONTEXT_MESSAGES = 20  # Messages fed to the AI per request (from session history)
-
-class Message:
-    def __init__(self, role: str, content: str):
-        self.role = role
-        self.content = content
-
-    def to_dict(self) -> dict:
-        return {"role": self.role, "content": self.content}
-
 
 SYSTEM_PROMPT = """You are ASSist, a professional work assistant integrated with Google Workspace.
 You help with tasks like summarizing emails, drafting responses, analyzing documents, and managing work.
